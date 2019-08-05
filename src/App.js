@@ -42,6 +42,18 @@ class App extends React.Component {
           </button>
         </div>
         <hr />
+        <div>History</div>
+        <div>
+          <ul>
+          {
+            this.props.history.map(el => (
+              <li onClick={() => this.props.onDelItem(el.id)} className="historyItem" key={el.id}>
+                {el.age}
+              </li>
+            ))
+          }
+          </ul>
+        </div>
       </div>
     );
   }
@@ -49,7 +61,8 @@ class App extends React.Component {
 
 const MapStateToProps = state => {
   return {
-    age: state.age
+    age: state.age,
+    history: state.history
   }
 };
 
@@ -61,7 +74,9 @@ const MapDispatchToProps = dispatch => {
     onAgeDown: () => dispatch({
       type: 'AGE_DOWN', value: 1
     }),
-
+    onDelItem: (id) => dispatch({
+      type: 'DEL_ITEM', key: id
+    })
   }
 };
 
