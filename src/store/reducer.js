@@ -8,12 +8,10 @@ const reducer = (state=initialState, action) => {
 
     switch(action.type) {
         case 'AGE_UP':
-            console.log('ageup')
             newState.age += action.value;
             break;
 
         case 'AGE_DOWN':
-            console.log('ageDown')
             newState.age -= action.value;
             break;
     }

@@ -30,9 +30,18 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div>Age: <span>{this.props.age}</span></div>
-        <button onClick={this.props.onAgeUp}>Age UP</button>
-        <button  onClick={this.props.onAgeDown}>Age Down</button>
+        <div className="header">
+          <div className="age">
+            Your age: <span>{this.props.age}</span>
+          </div>
+          <button className="ageUp" onClick={this.props.onAgeUp}>
+            Age UP
+          </button>
+          <button className="ageDown" onClick={this.props.onAgeDown}>
+            Age Down
+          </button>
+        </div>
+        <hr />
       </div>
     );
   }
